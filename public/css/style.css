@@ -30,16 +30,108 @@ padding:12px;
     vertical-align:middle;
 }
 
-
+body{
+  background-color: #eeeeee;
+}
 
 
 
 
 /*CArds*/
 .card{
-  background-color: white;
+  background-color: #fff;
   padding: 5px;
   border-radius: 15px;
   text-align: center;
   margin: 15px;
+  padding: 10px 50px 50px 50px;
+  border-radius: 50px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 10px 15px 5px #cbcbcb;
+}
+
+
+
+
+/*Quiz*/
+.quiz{
+  height: 430px;
+  width: 550px;
+  position: absolute;
+  left: 30%;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px 50px 50px 50px;
+  border-radius: 50px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 10px 15px 5px #cbcbcb;
+
+}
+
+
+.title{
+  padding-top: 20px;
+  text-align: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #800808;
+
+}
+
+.question{
+  padding: 20px;
+  font-size: 22px;
+  background-color: #868686;
+  border-radius: 20px;
+  margin: 10px 0 10px 0;
+  color: #f6f6f6;
+}
+
+.option{
+  width: 180px;
+  display: inline-block;
+  padding: 10px 0 10px 15px;
+  text-align: left;
+  background: rgb(94, 94, 94);
+  margin: 10px 0 10px 10px;
+  color: #060606;
+  border-radius: 20px;
+
+}
+
+.option:hover{
+  background: rgb(57, 57, 57);
+  color: #fff;
+}
+
+.next-btn{
+  border: none;
+  outline: none;
+  background-color: rgb(79, 19, 238);
+  width: 150px;
+  height: 35px;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  float: right;
+  margin: 30px;
+}
+
+.next-btn:hover{
+  background-color: rgb(40, 4, 135);
+}
+
+
+.result{
+  height: 100px;
+  text-align: center;
+  font-size: 75px;
+}
+
+.option input:checked{
+  background-color: rgb(215, 124, 16);
+  color: #fff;
 }

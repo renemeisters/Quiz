@@ -71,7 +71,7 @@
 
 
 
-    <div class="container">
+
       <div class="content">
 
     <h1><?= $heading ?></h1>

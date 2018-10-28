@@ -15,10 +15,10 @@
   <label>Antwort D:</label><br>
   <input type="text" name="d" required><br>
   <label>Richtige Antwort</label><br>
-  <input type="radio" name="answer" value="A" checked>
-  <input type="radio" name="answer" value="B">
-  <input type="radio" name="answer" value="C" >
-  <input type="radio" name="answer" value="D"><br>
+  <input type="radio" name="answer" value="1" checked>
+  <input type="radio" name="answer" value="2">
+  <input type="radio" name="answer" value="3" >
+  <input type="radio" name="answer" value="4"><br>
   <input type="submit" value="Frage hinzufügen" class="btn">
 </form>
 

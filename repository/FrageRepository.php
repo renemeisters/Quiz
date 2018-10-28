@@ -51,5 +51,24 @@ class FrageRepository extends Repository
       return $rows;
     }
 
+    public function countQuestionsByID($qid){
+      $query = "SELECT COUNT(frage) as numbers FROM $this->tableName where qid = ?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i',$qid);
+      $statement->execute();
+
+      $result = $statement->get_result();
+
+      if (!$result) {
+          throw new Exception($statement->error);
+      }
+      $rows = array();
+      while ($row = $result->fetch_object()) {
+          $rows[] = $row;
+      }
+      $statement->close();
+      return $rows;
+    }
+
 
 }

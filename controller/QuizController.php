@@ -113,6 +113,16 @@ class QuizController
     $view = new View("quiz_play");
     $view->title = "Quiz Name";
     $view->heading ="Quiz Name";
+    $qid = (int)$_GET['id'];
+    $frageRepository = new FrageRepository();
+    $frageID = $frageRepository->countQuestionsByID($qid);
+    foreach ($frageID as $frage) {
+      $fid = $frage->numbers;
+
+    }
+  
+    $view->count = $fid;
+    $view->questions = $frageRepository->getQuestionsByID($qid);
     $view->display();
   }
 
