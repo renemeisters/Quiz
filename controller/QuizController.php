@@ -3,6 +3,7 @@
 require_once '../repository/QuizRepository.php';
 require_once '../repository/FachRepository.php';
 require_once '../repository/FrageRepository.php';
+require_once '../repository/NotenRepository.php';
 
 /**
  * Siehe Dokumentation im DefaultController.
@@ -120,10 +121,22 @@ class QuizController
       $fid = $frage->numbers;
 
     }
-  
+      //($qid);die;
+    $view->qid = $qid;
     $view->count = $fid;
     $view->questions = $frageRepository->getQuestionsByID($qid);
     $view->display();
+  }
+
+  public function setMark(){
+    $qid = (int)$_POST['qid'];
+    $note = (double)$_POST['note'];
+    $uid = (int)$_SESSION['id'];
+  
+    $notenRepository = new NotenRepository();
+    $notenRepository->setMark($qid,$note,$uid);
+
+    header('Location: /quiz');
   }
 
 

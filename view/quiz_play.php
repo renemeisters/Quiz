@@ -1,17 +1,45 @@
 <div class="quiz" id="quizContainer">
+
   <div class="title">
 
   </div>
+
+
+<?php
+
+  if($questions != null){
+
+
+  echo'
   <div class="question" id="question"></div>
-    <label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
+
+   <label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
     <label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
     <label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
     <label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
-    <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">nächste Frage</button>
+    <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">nächste Frage</button>';
+}else{
+  echo "<h2>Es sind leider noch keine Fragen vorhanden</h2>
+  <button><a href='/quiz'>Zurück</a></button>";
+
+}
+
+
+?>
 
 </div>
 <div class="container result" id="result" style="display: none;">
+  <form class="" action="/quiz/setMark" method="post">
 
+  <h2 id="noteText"><h2>
+  <input  id="noteInput" type="hidden" name="note" value=""/>
+
+  <?php
+   echo "<input type='hidden' name='qid' value=".$qid."/>";
+  ?>
+  <input type="submit" name="test" value="Zurück zu Quizze">
+
+  </form>
 </div>
 
 <script type="text/javascript">
@@ -46,7 +74,8 @@ var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
-
+var noteInput = document.getElementById('noteInput');
+var noteText =document.getElementById('noteText');
 
 
 function loadQuestion(questionIndex){
@@ -85,11 +114,13 @@ echo "  if(currentQuestion == ".$count."){
     container.style.display = 'none';
     resultCont.style.display = '';
     calculate();
-    resultCont.textContent = 'Deine Note ist: ' + score;
+    noteText.textContent = 'Deine Note ist: ' + score;
+      noteInput.value = score;
     return;
   }";
   ?>
   loadQuestion(currentQuestion);
+
 }
 
 loadQuestion(currentQuestion);
