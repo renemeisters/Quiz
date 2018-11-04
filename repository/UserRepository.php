@@ -95,7 +95,7 @@ class UserRepository extends Repository
         $password = password_hash($pwd, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO $this->tableName (email, pwd,isTeacher) VALUES (?, ?,?)";
-        $test = 1;
+        $test = 0;
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('ssi',$email, $password,$test);
 

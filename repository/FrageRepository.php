@@ -70,5 +70,21 @@ class FrageRepository extends Repository
       return $rows;
     }
 
+    public function updateQuestions($fid,$frage,$a,$b,$c,$d,$answer,$qid){
+      $query = "UPDATE $this->tableName set frage=?,a=?,b=?,c=?,d=?,antwort=?,qid=?,hatMangel=? WHERE id = ?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $mangel = 0;
+      $statement->bind_param('ssssssiii',$frage,$a,$b,$c,$d,$answer,$qid,$mangel,$fid);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+
+      return $statement->insert_id;
+
+    }
+
+    
+
 
 }

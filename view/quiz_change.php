@@ -40,31 +40,33 @@ echo "<form action='/quiz/changeQuestion' method='post' >
   <label>Antwort D:</label><br>
   <input type='text' name='d' value=".$question->d." required><br>
   <label>Richtige Antwort</label><br>";
-  if($question->antwort == "A"){
-    echo  "<input type='radio' name='answer' checked value='A'>";
-      echo "<input type='radio' name='answer' value='B'>";
-    echo  "<input type='radio' name='answer' value='C'>";
-    echo  "<input type='radio' name='answer' value='D'><br>";
-  }
-  elseif ($question->antwort == "B") {
-    echo  "<input type='radio' name='answer' value='A'>";
-      echo "<input type='radio' name='answer' value='B' checked>";
-    echo  "<input type='radio' name='answer' value='C'>";
-    echo  "<input type='radio' name='answer' value='D'><br>";
-  }
-  elseif ($question->antwort == "C") {
-    echo  "<input type='radio' name='answer' value='A'>";
-      echo "<input type='radio' name='answer' value='B'>";
-    echo  "<input type='radio' name='answer' value='C checked'>";
-    echo  "<input type='radio' name='answer' value='D'><br>";
-  }
-  elseif ($question->antwort == "D") {
-    echo  "<input type='radio' name='answer' value='A'>";
-      echo "<input type='radio' name='answer' value='B'>";
-    echo  "<input type='radio' name='answer' value='C'>";
-    echo  "<input type='radio' name='answer' value='D' checked><br>";
-  }
 
+  if($question->antwort == "1"){
+    echo  "<input type='radio' name='answer' checked value='1'>";
+      echo "<input type='radio' name='answer' value='2'>";
+    echo  "<input type='radio' name='answer' value='3'>";
+    echo  "<input type='radio' name='answer' value='4'><br>";
+  }
+  elseif ($question->antwort == "2") {
+    echo  "<input type='radio' name='answer' value='1'>";
+      echo "<input type='radio' name='answer' value='2' checked>";
+    echo  "<input type='radio' name='answer' value='3'>";
+    echo  "<input type='radio' name='answer' value='4'><br>";
+  }
+  elseif ($question->antwort == "3") {
+    echo  "<input type='radio' name='answer' value='1'>";
+      echo "<input type='radio' name='answer' value='2'>";
+    echo  "<input type='radio' name='answer' value='3'checked'>";
+    echo  "<input type='radio' name='answer' value='4'><br>";
+  }
+  elseif ($question->antwort == "4") {
+    echo  "<input type='radio' name='answer' value='1'>";
+      echo "<input type='radio' name='answer' value='2'>";
+    echo  "<input type='radio' name='answer' value='3'>";
+    echo  "<input type='radio' name='answer' value='4' checked><br>";
+  }
+echo "<input type='hidden' name='fid' value=".$question->id.">";
+echo "<input type='submit' value='Frage ändern'>";
 echo "</form>";
 
 

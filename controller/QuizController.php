@@ -107,21 +107,29 @@ class QuizController
     $frageRepository = new FrageRepository();
     $frageRepository->addQuestion($question,$a,$b,$c,$d,$answer,$qid);
 
-  header('Location: /quiz/changeQuiz?id=4');
+  header("Location: /quiz/changeQuiz?id=".$qid."");
   }
 
   public function playQuiz(){
     $view = new View("quiz_play");
-    $view->title = "Quiz Name";
-    $view->heading ="Quiz Name";
+    $view->title = "";
+    $view->heading ="";
     $qid = (int)$_GET['id'];
+    $quizRepository = new QuizRepository();
     $frageRepository = new FrageRepository();
+    $notenRepository = new NotenRepository();
     $frageID = $frageRepository->countQuestionsByID($qid);
     foreach ($frageID as $frage) {
       $fid = $frage->numbers;
 
     }
+    $quizNamen =$quizRepository->getName($qid);
+    foreach ($quizNamen as $quizName){
+      $quiz = $quizName->name;
+    }
+    $view->marks = $notenRepository->getUserMarks($qid);
       //($qid);die;
+      $view->quizN = $quiz;
     $view->qid = $qid;
     $view->count = $fid;
     $view->questions = $frageRepository->getQuestionsByID($qid);
@@ -132,11 +140,27 @@ class QuizController
     $qid = (int)$_POST['qid'];
     $note = (double)$_POST['note'];
     $uid = (int)$_SESSION['id'];
-  
+
     $notenRepository = new NotenRepository();
+
     $notenRepository->setMark($qid,$note,$uid);
 
     header('Location: /quiz');
+  }
+
+  public function changeQuestion(){
+    $fid = $_POST['fid'];
+    $frage = $_POST['question'];
+    $a = $_POST['a'];
+    $b = $_POST['b'];
+    $c = $_POST['c'];
+    $d = $_POST['d'];
+    $answer = $_POST['answer'];
+    $qid = $_POST['qid'];
+    //var_dump($fid,$frage,$a,$b,$c,$d,$answer,$qid);die;
+    $frageRepository = new FrageRepository();
+    $frageRepository->updateQuestions($fid,$frage,$a,$b,$c,$d,$answer,$qid);
+    header("Location: /quiz/changeQuiz?id=".$qid."");
   }
 
 

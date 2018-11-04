@@ -10,10 +10,10 @@ require_once '../lib/Repository.php';
 class NotenRepository extends Repository
 {
     /**
-     * Diese Variable wird von der Klasse Repository verwendet, um generische
+     * Diese Variable wird von der Klasse Repossitory verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'note';
+    protected $tableName = 'noten';
 
     public function setMark($qid,$note,$uid){
       $query = "INSERT INTO $this->tableName (note, uid, qid) VALUES (?,?,?)";
@@ -25,6 +25,29 @@ class NotenRepository extends Repository
       }
 
       return $statement->insert_id;
+
+    }
+
+
+
+    public function getUserMarks($qid){
+      $query = "SELECT * FROM $this->tableName where uid = ? and qid = ? ORDER BY id DESC";
+      $uid = $_SESSION['id'];
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('ii',$uid,$qid);
+      $statement->execute();
+
+      $result = $statement->get_result();
+
+      if (!$result) {
+          throw new Exception($statement->error);
+      }
+      $rows = array();
+      while ($row = $result->fetch_object()) {
+          $rows[] = $row;
+      }
+      $statement->close();
+      return $rows;
 
     }
 

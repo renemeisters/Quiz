@@ -88,7 +88,29 @@ class QuizRepository extends Repository
        return $rows;
      }
 
+     public function getName($qid){
+       $query = "SELECT * FROM $this->tableName where id = ?";
 
-  
+       $statement = ConnectionHandler::getConnection()->prepare($query);
+       $statement->bind_param('i',$qid);
+       $statement->execute();
+
+       $result = $statement->get_result();
+
+       if (!$result) {
+           throw new Exception($statement->error);
+       }
+       $rows = array();
+       while ($row = $result->fetch_object()) {
+           $rows[] = $row;
+       }
+       $statement->close();
+       return $rows;
+     }
+
+     
+
+
+
 
 }

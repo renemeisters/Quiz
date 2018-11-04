@@ -1,7 +1,22 @@
+<div class="mark-container">
+  <?php
+  $countMarks = 1;
+   foreach ($marks as $mark){
+    echo "<p>Note ".$countMarks.": ".$mark->note."<p>";
+    $countMarks++;
+  } ?>
+
+</div>
+
+
+
+
 <div class="quiz" id="quizContainer">
 
   <div class="title">
-
+    <?php
+    echo "<h2>".$quizN."</h2>";
+     ?>
   </div>
 
 
@@ -29,6 +44,8 @@
 
 </div>
 <div class="container result" id="result" style="display: none;">
+
+
   <form class="" action="/quiz/setMark" method="post">
 
   <h2 id="noteText"><h2>
@@ -37,6 +54,7 @@
   <?php
    echo "<input type='hidden' name='qid' value=".$qid."/>";
   ?>
+
   <input type="submit" name="test" value="Zurück zu Quizze">
 
   </form>
@@ -76,7 +94,7 @@ var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 var noteInput = document.getElementById('noteInput');
 var noteText =document.getElementById('noteText');
-
+var numbQuestions = document.getElementById('questionNumber');
 
 function loadQuestion(questionIndex){
   var q = questions[questionIndex];
@@ -116,6 +134,7 @@ echo "  if(currentQuestion == ".$count."){
     calculate();
     noteText.textContent = 'Deine Note ist: ' + score;
       noteInput.value = score;
+    numbQuestions.max = currentQuestion;
     return;
   }";
   ?>
