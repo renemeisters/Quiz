@@ -84,7 +84,55 @@ class FrageRepository extends Repository
 
     }
 
-    
+
+    public function delete($fid){
+      $query = "DELETE FROM $this->tableName where id = ?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $mangel = 0;
+      $statement->bind_param('i',$fid);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+
+      return $statement->insert_id;
+    }
+
+    public function setMangel($fid){
+      $query = "UPDATE $this->tableName set hatMangel=? WHERE id = ?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $mangel = 1;
+      $statement->bind_param('ii',$mangel,$fid);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+
+      return $statement->insert_id;
+    }
+
+
+    public function getFragenWithMangel(){
+      $query = "SELECT * FROM $this->tableName where hatMangel = ?";
+      $mangel = 1;
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i',$mangel);
+      $statement->execute();
+
+      $result = $statement->get_result();
+
+      if (!$result) {
+          throw new Exception($statement->error);
+      }
+      $rows = array();
+      while ($row = $result->fetch_object()) {
+          $rows[] = $row;
+      }
+      $statement->close();
+      return $rows;
+    }
+
+
 
 
 }

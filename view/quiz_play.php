@@ -44,8 +44,54 @@
 
 </div>
 <div class="container result" id="result" style="display: none;">
+  <h1>Das sind die richtigen Antworten und Ihr Ergebnis</h1>
+  <form action="/quiz/mangel" method="post">
+<?php
+  foreach ($questions as $key => $question) {
+    echo "
+    <div class='question' id='question'>".$question->frage."</div>";
+
+      if($question->antwort == 1){
+    echo"  <label class='option green set'><input type='radio' name='option' value='1' checked/><span id='opt1'>".$question->a."</span></label>
+      <label class='option set'><input type='radio' name='option' value='2' /><span id='opt2'>".$question->b."</span></label>
+      <label class='option set'><input type='radio' name='option' value='3' /><span id='opt3'>".$question->c."</span></label>
+      <label class='option set'><input type='radio' name='option' value='4' /><span id='opt4'>".$question->d."</span></label>";
+  }
+
+      if($question->antwort == 2){
+        echo"  <label class='option set'><input type='radio' name='option' value='1' /><span id='opt1'>".$question->a."</span></label>
+          <label class='option green set'><input type='radio' name='option' value='2' checked/><span id='opt2'>".$question->b."</span></label>
+          <label class='option set'><input type='radio' name='option' value='3' /><span id='opt3'>".$question->c."</span></label>
+          <label class='option set'><input type='radio' name='option' value='4' /><span id='opt4'>".$question->d."</span></label>";
+    }
+    if($question->antwort == 3){
+      echo"  <label class='option set'><input type='radio' name='option' value='1' /><span id='opt1'>".$question->a."</span></label>
+        <label class='option set'><input type='radio' name='option' value='2' /><span id='opt2'>".$question->b."</span></label>
+        <label class='option green set'><input type='radio' name='option' value='3' checked /><span id='opt3'>".$question->c."</span></label>
+        <label class='option set'><input type='radio' name='option' value='4' /><span id='opt4'>".$question->d."</span></label>";
+    }
+    if($question->antwort == 4){
+      echo"  <label class='option set'><input type='radio' name='option' value='1' /><span id='opt1'>".$question->a."</span></label>
+        <label class='option set'><input type='radio' name='option' value='2' /><span id='opt2'>".$question->b."</span></label>
+        <label class='option set'><input type='radio' name='option' value='3' /><span id='opt3'>".$question->c."</span></label>
+        <label class='option green set'><input type='radio' name='option' value='4'  checked/><span id='opt4'>".$question->d."</span></label>";
+    }
 
 
+
+    echo "<label>Diese Frage bemängeln</label>";
+    echo "<input type='checkbox' name='mangel[]' value=".$question->id.">";
+    echo "<input type='hidden' name='fid' value=".$question->id.">";
+
+
+    echo "<input type='hidden' name='qid' value=".$qid."/>";
+    echo "<input  id='noteInput2' type='hidden' name='note' value=''/>";
+
+}
+
+ ?>
+<input type="submit" value="Ausgewählte Fragen bemängeln">
+</form>
   <form class="" action="/quiz/setMark" method="post">
 
   <h2 id="noteText"><h2>
@@ -93,6 +139,7 @@ var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 var noteInput = document.getElementById('noteInput');
+var noteInput2 = document.getElementById('noteInput2');
 var noteText =document.getElementById('noteText');
 var numbQuestions = document.getElementById('questionNumber');
 
@@ -134,6 +181,7 @@ echo "  if(currentQuestion == ".$count."){
     calculate();
     noteText.textContent = 'Deine Note ist: ' + score;
       noteInput.value = score;
+      noteInput2.value = score;
     numbQuestions.max = currentQuestion;
     return;
   }";

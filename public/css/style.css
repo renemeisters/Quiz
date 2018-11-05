@@ -102,6 +102,10 @@ body{
 
 }
 
+.green{
+  background: rgb(17, 171, 42);
+}
+
 .option:hover{
   background: rgb(57, 57, 57);
   color: #fff;
@@ -128,7 +132,7 @@ body{
 .result{
   height: 100px;
   text-align: center;
-  font-size: 75px;
+  font-size: 25px;
 }
 
 .option input:checked{

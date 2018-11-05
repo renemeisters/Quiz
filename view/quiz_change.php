@@ -68,7 +68,11 @@ echo "<form action='/quiz/changeQuestion' method='post' >
 echo "<input type='hidden' name='fid' value=".$question->id.">";
 echo "<input type='submit' value='Frage ändern'>";
 echo "</form>";
-
+echo "<form action='/quiz/delete' method='post'>";
+echo "<input type='hidden' name='qid' value=".$quizID.">";
+echo "<input type='hidden' name='fid' value=".$question->id.">";
+echo "<input type='submit' value='Frage löschen'>";
+echo "</form>";
 
 }
 

@@ -163,6 +163,36 @@ class QuizController
     header("Location: /quiz/changeQuiz?id=".$qid."");
   }
 
+  public function delete(){
+    $fid = $_POST['fid'];
+    $qid = $_POST['qid'];
+    $frageRepository = new FrageRepository();
+    $frageRepository->delete($fid);
+
+    header("Location: /quiz/changeQuiz?id=".$qid."");
+  }
+
+  public function mangel(){
+    $qid = (int)$_POST['qid'];
+    $note = (double)$_POST['note'];
+    $uid = (int)$_SESSION['id'];
+    $frageRepository = new FrageRepository();
+    if (isset($_POST['mangel']))
+    {
+      $mangelArr = $_POST['mangel'];
+      $mangelSize= sizeof($mangelArr);
+        for($i = 0; $i < $mangelSize; $i++){
+          $fmid = (int)$mangelArr[$i];
+        //  var_dump($fid);die;
+          $frageRepository->setMangel($fmid);
+        }
+    }
+    $notenRepository = new NotenRepository();
+
+    $notenRepository->setMark($qid,$note,$uid);
+    header("Location: /quiz");
+  }
+
 
 
 }
