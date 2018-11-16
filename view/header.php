@@ -8,7 +8,7 @@
     <title><?= $title ?> | Lehrer Quiz</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous--
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
 
 
@@ -25,7 +25,7 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="head">
+    <!--nav class="navbar navbar-inverse navbar-fixed-top" id="head">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -38,40 +38,114 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-                <?php
-                  if(isset($_SESSION['id'])){
 
-                  if($_SESSION['isTeacher'] == 0){
-                    echo  '<li><a href="/quiz">Quizze</a></li>';
-                  }
-
-                  if($_SESSION['isTeacher'] == 1){
-                      echo  '<li><a href="/quiz/create">Quiz erstellen</a></li>';
-                      echo  '<li><a href="/quiz/user">Meine Quizze</a></li>';
-                      echo '<li><a href="/fragen/meldung">Bemängelte Fragen</a></li>';
-                  }
-                  if($_SESSION['isTeacher'] == 2){
-                    echo '<li><a href="/user/">Accounts</a></li>';
-                  }
-                }
-                else{
-                echo '<li><a href="/user/create">Registrieren</a></li>';
-                echo'<li><a href="/user/login">Login</a></li>';
-                }
-                if(isset($_SESSION['id'])){
-                echo'<li><a href="/user/logout">Logout</a></li>';
-              }
-
-
-                ?>
               </div><!--/.nav-collapse -->
  </div>
 
+</nav-->
+
+
+<!--Title-->
+<div class="upper">
+  <div class="icon">
+    <span class="open-slide">
+      <a href="#" onclick="openSideMenu()">
+        <svg width="30" height="30">
+          <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+          <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+          <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+  </div>
+
+  <div class="upperCenter">
+        <h1><?= $heading ?></h1>
+  </div>
+  <div class="bars" id="nav-action">
+    <span class="bar"> </span>
+  </div>
+</div>
+<!--Navbar Links-->
+<nav class="navbar">
+
+    <ul class="navbar-nav">
+      <?php
+        if(isset($_SESSION['id'])){
+
+        if($_SESSION['isTeacher'] == 0){
+          echo  '<li><a href="/quiz">Quizze</a></li>';
+        }
+
+        if($_SESSION['isTeacher'] == 1){
+            echo  '<li><a href="/quiz/create">Quiz erstellen</a></li>';
+            echo  '<li><a href="/quiz/user">Meine Quizze</a></li>';
+            echo '<li><a href="/fragen/meldung">Bemängelte Fragen</a></li>';
+        }
+        if($_SESSION['isTeacher'] == 2){
+          echo '<li><a href="/user/">Accounts</a></li>';
+        }
+      }
+      else{
+      echo '<li><a href="/user/create">Registrieren</a></li>';
+      echo'<li><a href="/user/login">Login</a></li>';
+      }
+      if(isset($_SESSION['id'])){
+      echo'<li><a href="/user/logout">Logout</a></li>';
+    }
+
+
+      ?>
+
+
+
+    </ul>
+
 </nav>
+<div class="side-nav" id="side-menu">
+  <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>
+  <a href="/" >Home</a>  <?php
+
+    if(isset($_SESSION['id'])){
+
+    if($_SESSION['isTeacher'] == 0){
+      echo  '<a href="/quiz">Quizze</a>';
+    }
+
+    if($_SESSION['isTeacher'] == 1){
+        echo  '<a href="/quiz/create">Quiz erstellen</a>';
+        echo  '<a href="/quiz/user">Meine Quizze</a>';
+        echo '<a href="/fragen/meldung">Bemängelte Fragen</a>';
+    }
+    if($_SESSION['isTeacher'] == 2){
+      echo '<a href="/user/">Accounts</a>';
+    }
+  }
+  else{
+  echo '<a href="/user/create">Registrieren</a>';
+  echo'<a href="/user/login">Login</a>';
+  }
+  if(isset($_SESSION['id'])){
+  echo'<a href="/user/logout">Logout</a>';
+}
 
 
+  ?>
+</div>
+
+      <div class="content" id="main">
+<script>
+function openSideMenu(){
+  document.getElementById('side-menu').style.width = '250px';
+  document.getElementById('main').style.marginLeft = '250px';
+}
+
+function closeSideMenu(){
+  document.getElementById('side-menu').style.width = '0';
+  document.getElementById('main').style.marginLeft = '0';
+}
+
+</script>
 
 
       <div class="content">
-
-    <h1><?= $heading ?></h1>

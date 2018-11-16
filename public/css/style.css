@@ -1,5 +1,5 @@
 .content{
-  margin: 50px;
+  margin-bottom: 50px;
 }
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -32,6 +32,7 @@ padding:12px;
 
 body{
   background-color: #eeeeee;
+  margin: 0;
 }
 
 
@@ -138,4 +139,79 @@ body{
 .option input:checked{
   background-color: rgb(215, 124, 16);
   color: #fff;
+}
+
+
+
+
+.upper{
+  background-color:  #860800;
+  height: 80px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+}
+
+.upperCenter{
+  text-align: center;
+
+  padding-bottom: 20px;
+
+  color: white;
+}
+.icon{
+  float: left;
+  padding-top: 23px;
+  padding-left: 8px;
+}
+.navbar{
+  top: 80px;
+  margin-bottom: 20px;
+}
+
+
+
+.side-nav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top:0;
+  left: 0;
+  background-color: #4f0000;
+  opacity: 0.9;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.7s;
+}
+.side-nav a{
+  color: #ccc;
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  font-size: 22px;
+  display: block;
+  transition: 0.3;
+}
+.side-nav a:hover{
+  color: #fff;
+}
+.side-nav .btn-close{
+ position: absolute;
+ top: 0;
+ right: 22px;
+ font-size: 50px;
+ margin-left: 50px;
+}
+
+#main{
+  transition: margin-left 0.7s;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+@media(max-width: 568px){
+  .navbar-nav{display: none;}
+  .navbar{height: 0;}
 }

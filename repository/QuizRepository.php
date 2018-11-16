@@ -108,7 +108,35 @@ class QuizRepository extends Repository
        return $rows;
      }
 
-     
+     public function update($qid,$name){
+       $query = "UPDATE $this->tableName set name=? WHERE id=?";
+
+       $statement = ConnectionHandler::getConnection()->prepare($query);
+
+       $statement->bind_param('si',$name,$qid);
+
+       if (!$statement->execute()) {
+           throw new Exception($statement->error);
+       }
+       $_SESSION['succChangeQuiz'] = "true";
+       return $statement->insert_id;
+
+     }
+
+     public function delete($qid){
+       $query = "DELETE FROM $this->tableName where id = ?";
+       $statement = ConnectionHandler::getConnection()->prepare($query);
+       $mangel = 0;
+       $statement->bind_param('i',$qid);
+
+       if (!$statement->execute()) {
+           throw new Exception($statement->error);
+       }
+
+       return $statement->insert_id;
+     }
+
+
 
 
 

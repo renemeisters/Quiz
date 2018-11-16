@@ -22,8 +22,8 @@ class UserController
     public function create()
     {
         $view = new View('user_create');
-        $view->title = '';
-        $view->heading = '';
+        $view->title = 'Registrieren';
+        $view->heading = 'Registrieren';
         $view->display();
     }
 
@@ -55,8 +55,8 @@ class UserController
 //öffnet Loginseite
     public function login(){
       $view = new View('user_login');
-      $view->title = '';
-      $view->heading = '';
+      $view->title = 'Login';
+      $view->heading = 'Login';
       $view->display();
     }
 

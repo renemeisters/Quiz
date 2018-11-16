@@ -1,3 +1,34 @@
+<div class="changeQuiz">
+  <h2>Quiz bearbeiten</h2>
+  <form action="/quiz/doChange" method="post">
+    <label>Neuer Quiz Name</label><br>
+    <input type="text" name="name" required><br>
+
+    <?php
+    echo "<input type='hidden' name='qid' value=".$quizID.">";
+    ?>
+    <input type="submit" value="Ändere Quiz">
+    <?php
+      if(isset($_SESSION['changeQuizFilled'])){
+        echo "<div class='isa_error'>
+              Bitte füllen Sie alle angeforderten Felder aus!
+              </div>";
+      }
+     if(isset($_SESSION['succChangeQuiz'])){
+        echo "<div class='isa_success'>
+              Name wurde Erfolgreich geändert
+              </div>";
+      }
+     ?>
+  </form>
+  <form  action="/quiz/delete" method="post">
+    <?php
+    echo "<input type='hidden' name='qid' value=".$quizID.">";
+    ?>
+    <input type="submit" value="Lösche Quiz">
+  </form>
+
+</div>
 
 <h1>Neue Frage hinzfügen</h1>
 <form action="/quiz/addQuestion" method="post" >
@@ -68,7 +99,7 @@ echo "<form action='/quiz/changeQuestion' method='post' >
 echo "<input type='hidden' name='fid' value=".$question->id.">";
 echo "<input type='submit' value='Frage ändern'>";
 echo "</form>";
-echo "<form action='/quiz/delete' method='post'>";
+echo "<form action='/quiz/deleteQuestion' method='post'>";
 echo "<input type='hidden' name='qid' value=".$quizID.">";
 echo "<input type='hidden' name='fid' value=".$question->id.">";
 echo "<input type='submit' value='Frage löschen'>";
