@@ -1,6 +1,4 @@
-.content{
-  margin-bottom: 50px;
-}
+
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .isa_info, .isa_success, .isa_warning, .isa_error {
@@ -151,6 +149,7 @@ body{
   top: 0;
   position: fixed;
   z-index: 2;
+
 }
 
 .upperCenter{
@@ -167,7 +166,7 @@ body{
 }
 .navbar{
   top: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
 }
 
 
@@ -214,4 +213,108 @@ body{
 @media(max-width: 568px){
   .navbar-nav{display: none;}
   .navbar{height: 0;}
+}
+
+
+
+
+
+
+.upp-img{
+
+}
+.explain{
+  height: auto;
+  background-color: rgb(171, 36, 52);
+    text-align: center;
+    padding: 15px;
+    color: white;
+}
+.classes{
+  height: auto;
+  background-color: rgb(67, 123, 203);
+  color: white;
+  text-align: center;
+  opacity: 1;
+  padding: 15px;
+}
+.becomeTeacher{
+  height: 300px;
+  background-color: rgb(65, 194, 58);
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.fach a{
+  text-decoration: none;
+  color: white;
+}
+.mathe{
+  grid-area: mathe;
+}
+.WR{
+  grid-area: wr;
+}
+.frw{
+  grid-area: frw;
+}
+.title-index{
+  grid-area: title;
+}
+.englisch{
+  grid-area: englisch;
+}
+.franz{
+  grid-area: franz;
+}
+.deutsch{
+  grid-area: deutsch;
+}
+.IKA{
+  grid-area: ika;
+}
+.gs{
+  grid-area: gs;
+}
+.tu{
+  grid-area: tu;
+}
+.img-fach{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  opacity: 2;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+@media only screen and (min-width: 600px){
+  .index-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr;
+    grid-template-areas: "title title"
+                         "card1 card2"
+                         "card3 card4"
+                         "card5 card6";
+                         grid-gap: 1em;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  .index-grid{
+    display: grid;
+    grid-template-columns: 1fr 340px 340px 340px 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    grid-template-areas: ". title title title ."
+                         ". mathe wr frw ."
+                         ". englisch franz deutsch ."
+                         ". ika gs tu .";
+                         grid-gap: 1em;
+  }
+}
+
+.foot{
+  background-color:  #860800;
 }

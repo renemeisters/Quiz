@@ -1,4 +1,5 @@
-
+</div>
+<div class="foot">
         <footer>
           <p></p>
 
@@ -14,8 +15,6 @@
 
 <!-- Lightbox fron : http://webseotips.com/responsive-image-gallery-bootstrap-4/-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-<script>
-    baguetteBox.run('.tz-gallery');
-</script>
+</div>
   </body>
 </html>
