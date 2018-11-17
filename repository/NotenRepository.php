@@ -31,7 +31,7 @@ class NotenRepository extends Repository
 
 
     public function getUserMarks($qid){
-      $query = "SELECT * FROM $this->tableName where uid = ? and qid = ? ORDER BY id DESC";
+      $query = "SELECT MAX(note) as note FROM $this->tableName where uid = ? and qid = ?";
       $uid = $_SESSION['id'];
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('ii',$uid,$qid);

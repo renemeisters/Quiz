@@ -1,22 +1,22 @@
-<div class="mark-container">
-  <?php
-  $countMarks = 1;
-   foreach ($marks as $mark){
-    echo "<p>Note ".$countMarks.": ".$mark->note."<p>";
-    $countMarks++;
-  } ?>
 
-</div>
+<div class="quiz-grid">
 
 
 
 
+<div class="all">
 <div class="quiz" id="quizContainer">
 
   <div class="title">
     <?php
     echo "<h2>".$quizN."</h2>";
+
+     foreach ($marks as $mark){
+      echo "<p class='mark'>Beste Note: ".$mark->note."<p>";
+
+    }
      ?>
+
   </div>
 
 
@@ -43,12 +43,12 @@
 ?>
 
 </div>
-<div class="container result" id="result" style="display: none;">
+<div id="result" style="display: none;">
   <h1>Das sind die richtigen Antworten und Ihr Ergebnis</h1>
   <form action="/quiz/mangel" method="post">
 <?php
   foreach ($questions as $key => $question) {
-    echo "
+echo "
     <div class='question' id='question'>".$question->frage."</div>";
 
       if($question->antwort == 1){
@@ -74,11 +74,10 @@
       echo"  <label class='option set'><input type='radio' name='option' value='1' /><span id='opt1'>".$question->a."</span></label>
         <label class='option set'><input type='radio' name='option' value='2' /><span id='opt2'>".$question->b."</span></label>
         <label class='option set'><input type='radio' name='option' value='3' /><span id='opt3'>".$question->c."</span></label>
-        <label class='option green set'><input type='radio' name='option' value='4'  checked/><span id='opt4'>".$question->d."</span></label>";
+        <label class='option green set'><input type='radio' name='option' value='4'  checked/><span id='opt4'>".$question->d."</span></label><br>";
     }
 
-
-
+    echo "<br>";
     echo "<label>Diese Frage bemängeln</label>";
     echo "<input type='checkbox' name='mangel[]' value=".$question->id.">";
     echo "<input type='hidden' name='fid' value=".$question->id.">";
@@ -87,11 +86,15 @@
     echo "<input type='hidden' name='qid' value=".$qid."/>";
     echo "<input  id='noteInput2' type='hidden' name='note' value=''/>";
 
+
 }
 
  ?>
+<br>
 <input type="submit" value="Ausgewählte Fragen bemängeln">
+
 </form>
+
   <form class="" action="/quiz/setMark" method="post">
 
   <h2 id="noteText"><h2>
@@ -103,9 +106,11 @@
 
   <input type="submit" name="test" value="Zurück zu Quizze">
 
+
   </form>
 </div>
-
+</div>
+</div>
 <script type="text/javascript">
   var questions = [
     <?php
@@ -182,7 +187,7 @@ echo "  if(currentQuestion == ".$count."){
     noteText.textContent = 'Deine Note ist: ' + score;
       noteInput.value = score;
       noteInput2.value = score;
-    numbQuestions.max = currentQuestion;
+
     return;
   }";
   ?>

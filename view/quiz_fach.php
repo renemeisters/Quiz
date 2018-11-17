@@ -45,7 +45,7 @@
   </div>
 
   <div class="row mb-3 fach franz">
-    <a href="/quiz/show?fach=Französich">
+    <a href="/quiz/show?fach=Französisch">
       <div class='col-sm-4'>
         <div class="card" >
           <img class="card-img-top" src="/images/france.png" alt="Card image" style="width:100%; border-radius:15px; height:100%;">

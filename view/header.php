@@ -71,33 +71,7 @@
 <nav class="navbar">
 
     <ul class="navbar-nav">
-      <?php
-        if(isset($_SESSION['id'])){
-
-        if($_SESSION['isTeacher'] == 0){
-          echo  '<li><a href="/quiz">Quizze</a></li>';
-        }
-
-        if($_SESSION['isTeacher'] == 1){
-            echo  '<li><a href="/quiz/create">Quiz erstellen</a></li>';
-            echo  '<li><a href="/quiz/user">Meine Quizze</a></li>';
-            echo '<li><a href="/fragen/meldung">Bemängelte Fragen</a></li>';
-        }
-        if($_SESSION['isTeacher'] == 2){
-          echo '<li><a href="/user/">Accounts</a></li>';
-        }
-      }
-      else{
-      echo '<li><a href="/user/create">Registrieren</a></li>';
-      echo'<li><a href="/user/login">Login</a></li>';
-      }
-      if(isset($_SESSION['id'])){
-      echo'<li><a href="/user/logout">Logout</a></li>';
-    }
-
-
-      ?>
-
+      
 
 
     </ul>
@@ -121,14 +95,12 @@
     if($_SESSION['isTeacher'] == 2){
       echo '<a href="/user/">Accounts</a>';
     }
+      echo'<a href="/user/logout">Logout</a>';
   }
   else{
   echo '<a href="/user/create">Registrieren</a>';
   echo'<a href="/user/login">Login</a>';
   }
-  if(isset($_SESSION['id'])){
-  echo'<a href="/user/logout">Logout</a>';
-}
 
 
   ?>

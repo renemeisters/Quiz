@@ -1,13 +1,7 @@
 </div>
 </div>
 <div class="foot">
-        <footer>
-          <p></p>
 
-        </footer>
-      </div>
-        <hr>
-      </div>
 
 
 

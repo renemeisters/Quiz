@@ -22,7 +22,7 @@
  *     - Daten welche z.B. von einem Formular kommen validieren und dem Model
  *         übergeben, damit sie in der Datenbank persistiert werden können.
  */
- require_once '../repository/GalerieRepository.php';
+
 class DefaultController
 {
     /**
