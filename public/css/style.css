@@ -1,4 +1,6 @@
-
+.content{
+  background-color: #eeeeee;
+}
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .isa_info, .isa_success, .isa_warning, .isa_error {
@@ -29,8 +31,11 @@ padding:12px;
 }
 
 body{
-  background-color: #eeeeee;
   margin: 0;
+}
+.bod{
+  background-color: #860800;
+
 }
 
 
@@ -166,7 +171,7 @@ body{
 }
 .navbar{
   top: 80px;
-  margin-bottom: 70px;
+/*  margin-bottom: 70px;*/
 }
 
 
@@ -221,8 +226,29 @@ body{
 
 
 .upp-img{
+  background-image: url('../images/background.jpg');
+/*background-color: rgb(255, 90, 82);*/
+min-height: 100vh;
+position: relative;
+ opacity: 0.70;
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
 
+ background-attachment: fixed;
 }
+
+.upp-img h1{
+  position: absolute;
+top: 50%;
+width: 100%;
+text-align: center;
+color: #000;
+font-size: 27px;
+letter-spacing: 8px;
+text-transform: uppercase;
+}
+
 .explain{
   height: auto;
   background-color: rgb(171, 36, 52);

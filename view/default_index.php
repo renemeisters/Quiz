@@ -1,5 +1,5 @@
 <div class="upp-img">
-
+  <h1>Herzlich Willkommen auf bwdquiz.ch</h1>
 </div>
 <div class="explain">
   <h2>Was ist BWD Quiz?</h2>

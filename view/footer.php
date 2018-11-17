@@ -1,4 +1,5 @@
 </div>
+</div>
 <div class="foot">
         <footer>
           <p></p>
