@@ -13,7 +13,7 @@ class FragenController
     $view = new View('fragen_gemeldet');
     $fragenRepository = new FrageRepository();
   //  $view->quizze = $quizRepository->getUserQuiz();
-    $view->fragen = $fragenRepository->getFragenWithMangel();
+    $view->questions = $fragenRepository->getFragenWithMangel();
     $view->title = 'Bemängelte Fragen';
     $view->heading = 'Bemängelte Fragen';
     $view->display();
