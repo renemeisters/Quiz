@@ -85,11 +85,18 @@ class QuizController
     $quiz = $_GET['id'];
     $view->quizID = (int)$quiz;
   //  var_dump($view->quizID);die;
+    $quizRepository = new QuizRepository();
     $frageRepository = new FrageRepository();
     $qid = (int)$quiz;
     $view->questions = $frageRepository->getQuestionsByID($qid);
-    $view->title = "Quiz ändern";
-    $view->heading = '';
+    $quizNamen =$quizRepository->getName($qid);
+
+    foreach ($quizNamen as $quizName){
+      $quiz = $quizName->name;
+    }
+    $view->title = $quiz;
+
+    $view->heading = $quiz;
     $view->display();
 
   }
@@ -129,7 +136,7 @@ class QuizController
       $quiz = $quizName->name;
     }
     $view->title = $quiz;
-  
+
     $view->heading = $quiz;
     $view->marks = $notenRepository->getUserMarks($qid);
       //($qid);die;
