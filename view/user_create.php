@@ -1,22 +1,20 @@
+<div class="upp-img login">
 
+<div class="center-form">
 
-
-
-
-          <h1>Sign Up</h1>
 
           <form action="/user/doCreate" method="post">
             <div class="form-group">
-              <label for="email">Email Adresse</label>
-            <input type="text" placeholder="E-Mail" name="email" class="form-control" required>
+              <label for="email">Email Adresse</label><br>
+            <input class="input-text" type="text" placeholder="E-Mail" name="email" class="form-control" required>
           </div>
           <div class="form-group">
-            <label for="email">Passwort</label>
-            <input type="password" name="pwd" placeholder="Passwort" class="form-control"  required>
+            <label for="email">Passwort</label><br>
+            <input class="input-text" type="password" name="pwd" placeholder="Passwort" class="form-control"  required>
           </div>
           <div class="form-group">
-            <label for="email">Passwort wiederholen</label>
-            <input type="password" name="pwd2" placeholder="Passwort wiederholen" class="form-control" required>
+            <label for="email">Passwort wiederholen</label><br>
+            <input class="input-text" type="password" name="pwd2" placeholder="Passwort wiederholen" class="form-control" required>
           </div>
           <input type="submit" name="send" class="btn" value="Registrieren"/>
 
@@ -60,5 +58,3 @@
 
 
       </div><!-- tab-content -->
-
-</div>

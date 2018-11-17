@@ -124,11 +124,13 @@ class QuizController
 
     }
     $quizNamen =$quizRepository->getName($qid);
-    $view->title = $quizNamen;
-    $view->heading = $quizNamen;
+
     foreach ($quizNamen as $quizName){
       $quiz = $quizName->name;
     }
+    $view->title = $quiz;
+  
+    $view->heading = $quiz;
     $view->marks = $notenRepository->getUserMarks($qid);
       //($qid);die;
       $view->quizN = $quiz;

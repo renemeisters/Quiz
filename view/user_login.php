@@ -1,18 +1,18 @@
+<div class="upp-img login">
+
+<div class="center-form">
 
 
-
-          <h1>Login</h1>
-
-          <form action="/user/doLogin" method="post">
+          <form action="/user/doLogin" method="post" class="login">
             <div class="form-group">
-              <label for="email">Email Adresse</label>
-            <input type="text" placeholder="E-Mail" name="email" class="form-control" required>
+              <label for="email">E-mail Adresse</label><br>
+            <input class="input-text" type="text" placeholder="E-Mail" name="email" class="form-control" required>
           </div>
 
           <div class="form-group">
-            <label for="email">Passwort</label>
+            <label for="email">Passwort</label><br>
 
-            <input type="password" name="pwd" placeholder="Passwort" class="form-control" required>
+            <input class="input-text" type="password" name="pwd" placeholder="Passwort" class="form-control" required>
           </div>
 
 
@@ -30,9 +30,5 @@
           ';}
 
            ?>
+         </div>
         </div>
-
-
-      </div><!-- tab-content -->
-
-</div> <!-- /form -->

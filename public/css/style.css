@@ -269,7 +269,8 @@ text-transform: uppercase;
   background-color: rgb(65, 194, 58);
   text-align: center;
   color: white;
-  padding: 20px;
+  padding: 30px;
+
 }
 
 .fach a{
@@ -319,11 +320,13 @@ text-transform: uppercase;
   .index-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "title title"
-                         "card1 card2"
-                         "card3 card4"
-                         "card5 card6";
+                         "mathe wr"
+                         "frw englisch"
+                         "franz deutsch"
+                         "ika gs"
+                         "tu .";
                          grid-gap: 1em;
   }
 }
@@ -343,4 +346,73 @@ text-transform: uppercase;
 
 .foot{
   background-color:  #860800;
+}
+
+.form-group{
+  text-align: center;
+  position:relative;
+
+}
+.input-text{
+  display: inline-block;
+    width: 450px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: white;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.login{
+  text-align: center;
+  padding: 10px;
+}
+
+.center-form{
+  position: absolute;
+top: 10%;
+width: 100%;
+text-align: center;
+color: #000;
+font-size: 27px;
+letter-spacing: 8px;
+text-transform: uppercase;
+}
+
+.btn {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius:40px;
+
+  border: 2px solid #ed4c4c;
+  color:#ed4c4c;
+  background:white;
+  letter-spacing:1px;
+  text-shadow:0;
+}
+.btn:hover{
+  color:white;
+  background:#ed4c4c;
+}
+
+.user-card{
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px;
+  top: 60px;
+}
+
+.panel{
+  margin: 40px;
+}
+
+.card-title{
+  color:black;
 }
