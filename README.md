@@ -1,39 +1,27 @@
-# Bbc MVC
 
-Willkommen beim MVC des Bbc. In diesem Repository findest du den Code sowie eine Anleitung dazu.
-
-## Aufbau
-
-Über verschiedene Branches wird das MVC Framework Schritt für Schritt aufgebaut und auf der letzten Branch findest du dann das vollständige Framework mit ein Paar Beispielseiten. Hier ein kleiner Überblick.
-
-| Reihenfolge | Branch      | Inhalt                                                          |
-|-------------|-------------|-----------------------------------------------------------------|
-|             | master      | Einleitung                                                      |
-| 1           | controller  | Grundsetup. Dispatcher und Controller                           |
-| 2           | view        | Alles zum Thema HTML                                            |
-| 3           | model       | Dann noch die Werkzeuge für den Datenbankzugriff                |
-| 4           | formbuilder | Für alle die noch nicht genug haben, noch ein Formulargenerator |
 
 ## Installation unter Windows
 
 ### Vorbereitung
 
-Bevor du mit der Installation beginnen kannst, ist es wichtig, dass du auf deinem PC einen funktionierenden XAMPP Stack am laufen hast. Sollte das nicht der Fall sein, findest du im Internet eine Anleitung dazu.
+Bevor Sie mit der Installation beginnen können, ist es wichtig, dass Sie auf Ihrem PC einen funktionierenden XAMPP Stack am laufen haben. Sollte das nicht der Fall sein, finden Sie im Internet eine Anleitung dazu.
+
+
 
 ### Installation
 
-Kopiere zuert alle Dateien aus der Branch, welche du verwenden möchtest, in den Ordner in dem du Dein Projekt entwickeln möchtest. Hier wird das Verzeichnis `C:\dev\my-project` verwendet.
+Kopieren Sie zuert alle Dateien aus dem Projekt in Ihren Installations Ordner. Hier wird das Verzeichnis `C:\project\quiz` verwendet.
 
-Um später mit einem DNS Namen auf die Seite zugreifen zu können, musst du den gewünschten DNS Namen in der `hosts`-Datei eintagen. Wir verwenden in diesem Beispiel den Namen `my-project.local`.
+Um später mit einem DNS Namen auf die Seite zugreifen zu können, müssen Sie den gewünschten DNS Namen in der `hosts`-Datei eintagen. Wir verwenden in diesem Beispiel den Namen `quiz.local`.
 
 `C:\Windows\System32\drivers\etc\hosts`
 ```
 # [...]
 
-127.0.0.1    my-project.local
+127.0.0.1    quiz.local
 ```
 
-Damit der Apache Webserver aus dem XAMPP Stack weiss, welcher DNS Namen zu welchem Ordner auf dem Dateisystem gehört, musst du einen VirtualHost erstellen. Dazu musst du die Datei `C:\xampp\apache\conf\extra\httpd-vhosts.conf` folgendermassen anpassen.
+Damit der Apache Webserver aus dem XAMPP Stack weiss, welcher DNS Namen zu welchem Ordner auf dem Dateisystem gehört, müssen einen VirtualHost erstellen. Dazu müssen Sie die Datei `C:\xampp\apache\conf\extra\httpd-vhosts.conf` folgendermassen anpassen.
 
 ```apache
 # [...]
@@ -46,13 +34,13 @@ NameVirtualHost *:80
 # Eigentliche VHost Konfiguration
 <VirtualHost 127.0.0.1>
     # DNS Name auf den der VHost hören soll
-    ServerName my-project.local
+    ServerName quiz.local
 
     # Ort an dem Das Projekt zu finden ist
-    DocumentRoot "c:/dev/my-project/public"
+    DocumentRoot "c:/project/quiz/public"
 
     # Nochmals
-    <Directory "c:/dev/my-project/public">
+    <Directory "c:/project/quiz/public">
         Options Indexes FollowSymLinks
         Options +Includes
         AllowOverride All
@@ -63,5 +51,13 @@ NameVirtualHost *:80
     </Directory>
 </VirtualHost>
 ```
+### Datenbank auf Localhost
 
-Nun starte den Apache über das XAMPP Control Panel neu und du solltest mit dem Browser deines Vertrauens auf die Seite `http://my-project.local` zugreifen können.
+Nun starten Sie den  und MySQL über das XAMPP Control Panel neu und öffnen Sie die Seite `http://quiz.local/phpmyadmin`.
+Klicken Sie links bei den Datenbanken auf "neu", geben Sie der Datenbank den Namen "quiz" und klicken Sie auf anlegen.
+Klicken Sie in der Navigation auf "importieren" und wählen Sie die Datei quiz.sql aus, welche Sie im Ordner Data finden.
+Klicken Sie nun ohne weitereszu ändern auf Ok und die Datenbank steht.
+
+
+### Starten
+Sie sollten mit dem Browser deines Vertrauens auf die Seite `http://quiz.local` zugreifen können.
