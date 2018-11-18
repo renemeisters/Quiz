@@ -61,6 +61,7 @@ foreach ($questions as $question) {
   echo "<div class='form'>";
 echo "<form action='/quiz/changeQuestion' method='post' >
   <label>Frage</label><br>
+    <p>".$question->frage."</p>
   <input type='text' class='change-input' name='question' value=".$question->frage." required><br>
   <label>Antwort A:</label><br>
   <input type='text' name='a'  class='change-input'value=".$question->a." required><br>
